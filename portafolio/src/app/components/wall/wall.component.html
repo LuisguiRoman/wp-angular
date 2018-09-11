@@ -1,0 +1,22 @@
+<div class="container top portfolio">
+
+    <header>
+    	<ul id="filter" *ngIf=" cats ">
+            <li data-cat="*">Todos</li>
+            <li *ngFor=" let cat of cats " class="{{cat.id}}" [attr.data-cat]=" cat.id " >
+              {{cat.name}}
+            </li>
+        </ul>
+    </header>
+
+	<div id="wall" *ngIf=" items ">
+		<app-brick 
+          *ngFor=" let item of items;  let last = last " 
+          [ready]="last" 
+          [item]="item" 
+          [ngClass]=" item.categories | cats " 
+          [attr.data-cats]=" item.categories | cats " >
+    </app-brick>
+	</div>
+
+</div>

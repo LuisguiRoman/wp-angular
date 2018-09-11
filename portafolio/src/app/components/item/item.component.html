@@ -1,0 +1,51 @@
+<div class="item-page scroll" *ngIf=" itemSelected ">
+
+   <header>
+      <div class="centro">
+         <a id="back" [routerLink]=" ['/'] ">
+           <span class="fas fa-chevron-left"></span> VOLVER
+         </a>
+         <h1>{{itemSelected.title.rendered}}</h1>
+      </div>
+   </header>
+
+   <div class="container" >
+      <div class="center">
+
+           <div class="row item-data">
+             <article class="col-h col-h-1" [innerHTML]=" itemSelected.content.rendered ">
+               {{ itemSelected.content.rendered }}
+             </article>
+             <div class="col-h col-h-2">
+               <div class="tags" *ngIf=" itemTags ">
+                 <!-- .length >= 2  para mostrar si hay mas de dos elementos -->
+                 <h3>Tecnología<span *ngIf=" itemTags.length >= 2 ">s</span></h3>
+                 <span class="tag" *ngFor=" let tag of itemTags ">
+                   {{ tag.name }}
+                 </span>
+               </div>
+             </div>
+           </div>
+
+           <div *ngIf=" itemSelected.acf.galeria ">
+             <figure *ngFor=" let figure of itemSelected.acf.galeria ">
+              <img class="rotate" [src]="figure.url" alt="{{ figure.title }}">
+              <figcaption>
+                 <h3>{{figure.title}}</h3>
+              </figcaption>
+             </figure>
+           </div>
+
+           <div class="cont-video" 
+           *ngIf=" itemSelected.acf.videos.mp4 || itemSelected.acf.videos.webm || itemSelected.acf.videos.ogg ">
+              <video controls preload="auto" loop>
+                <source *ngIf="itemSelected.acf.videos.mp4" [src]="itemSelected.acf.videos.mp4.url" type="video/mp4">
+                <source *ngIf="itemSelected.acf.videos.webm" [src]="itemSelected.acf.videos.webm.url" type="video/webm">
+                <source *ngIf="itemSelected.acf.videos.ogg" [src]="itemSelected.acf.videos.ogg.url" type="video/ogg">
+              </video>
+           </div>
+           
+      </div>
+   </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div id="primary">
+
+    <app-sidebar></app-sidebar>
+    
+    <main [@routerAnimation]=" getRouteAnimation(route) ">
+        <router-outlet #route="outlet" ></router-outlet>
+    </main>
+
+</div>
+
+  
+

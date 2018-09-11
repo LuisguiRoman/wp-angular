@@ -1,0 +1,8 @@
+<figure class="brick waves-effect waves-me">
+	<a [routerLink]=" ['/', item.slug] ">
+		<img [src]="item.better_featured_image.source_url">
+	    <figcaption class="info">
+		    <h3>{{item.title.rendered}}</h3>
+	    </figcaption>
+	</a>
+</figure>
