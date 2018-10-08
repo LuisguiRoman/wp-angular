@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CatsService {
 
-  public jsonCats = "http://eldiablo.com.co/wp-json/wp/v2/categories";
+  public jsonCats = "/wp-json/wp/v2/categories";
 
   constructor(private http:Http) {}
 

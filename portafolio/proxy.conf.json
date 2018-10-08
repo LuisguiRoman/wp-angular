@@ -3,5 +3,10 @@
     "target": "http://eldiablo.com.co",
     "secure": false,
     "changeOrigin": true
+  },
+  "/wp-json/wp/v2/posts/*": {
+    "target": "http://eldiablo.com.co",
+    "secure": false,
+    "changeOrigin": true
   }
 }

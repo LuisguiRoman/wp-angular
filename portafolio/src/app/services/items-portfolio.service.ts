@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ItemsPortfolioService {
 
-  public jsonUrl = "http://eldiablo.com.co/wp-json/wp/v2/posts";
+  public jsonUrl = "/wp-json/wp/v2/posts";
 
   constructor(private http:Http) { }
 
