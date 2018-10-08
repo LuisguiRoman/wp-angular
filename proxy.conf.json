@@ -1,0 +1,7 @@
+{
+  "/wp-json/wp/v2/categories/*": {
+    "target": "http://eldiablo.com.co",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

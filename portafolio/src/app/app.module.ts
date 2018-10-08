@@ -16,7 +16,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
-//crear ruta
+//crear rutas
 const rutasApp:Routes = [
    { path: 'el-diablo', component: AboutComponent, data: { animation: 'el-diablo' } },
    { path: 'contacto', component: ContactComponent, data: { animation: 'contacto' } },

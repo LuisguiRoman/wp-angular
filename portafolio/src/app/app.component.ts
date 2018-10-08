@@ -5,7 +5,7 @@ import { trigger, state, animate, style, transition, query} from '@angular/anima
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'el-diablo',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
