@@ -11,14 +11,8 @@ export class CatsService {
   constructor(private http:Http) {}
 
   getCats():Observable<object[]> {
-  	let headers = new Headers();
-  	headers.append('Content-Type', 'application/json');
-  	headers.append('Access-Control-Allow-Methods', 'HEAD, GET, POST, PUT, PATCH, DELETE');
-    headers.append('Access-Control-Allow-Origin', '*');
-    let options = new RequestOptions({headers: headers});
-
       return this.http
-        .get(this.jsonCats, options)
+        .get(this.jsonCats)
         .map((res: Response) => res.json());
   }
 

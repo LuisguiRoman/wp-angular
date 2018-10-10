@@ -11,14 +11,8 @@ export class ItemsPortfolioService {
   constructor(private http:Http) { }
 
   getPortfolio():Observable<object[]> {
-  	let headers = new Headers();
-  	headers.append('Content-Type', 'application/json');
-  	headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-    headers.append('Access-Control-Allow-Origin', '*');
-    let options = new RequestOptions({headers: headers});
-
       return this.http
-        .get(this.jsonUrl, options)
+        .get(this.jsonUrl)
         .map((res: Response) => res.json());
   }
 

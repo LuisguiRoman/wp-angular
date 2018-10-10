@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//animaciones
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';//ejecutar acci9ones http
+import { FormsModule } from '@angular/forms';//modulo para control de formularios
 
 import { CatsService } from './services/cats.service';
 import { ItemsPortfolioService } from './services/items-portfolio.service';
