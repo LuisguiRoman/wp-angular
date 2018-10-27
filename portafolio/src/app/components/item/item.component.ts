@@ -42,7 +42,7 @@ export class ItemComponent implements OnInit {
     //del servicio creado en php
     //subscribe para una respuesta o callback almacenada en la variable respuesta en formato Json
     this.http
-    .request('/wp-json/wp/v2/posts?slug='+this.itemSlug)
+    .request('http://eldiablo.com.co/wp-json/wp/v2/posts?slug='+this.itemSlug)
     .subscribe( (respuesta:Response)=> {
       this.itemSelected = respuesta.json()[0]//almacenamos en la variable videos el json
       this.getTags(this.itemSelected.tags);
@@ -51,7 +51,7 @@ export class ItemComponent implements OnInit {
 
   getTags(tags){
     this.http
-    .request('/wp-json/wp/v2/tags?include='+tags)
+    .request('http://eldiablo.com.co/wp-json/wp/v2/tags?include='+tags)
     .subscribe( (respuesta:Response)=> {
       this.itemTags = respuesta.json()//almacenamos en la variable videos el json
     } );
