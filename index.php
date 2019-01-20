@@ -17,7 +17,7 @@
 
 //require get_template_directory()."/portafolio/src/index.html"; 
 
-require get_template_directory()."/portafolio/dist/index.html";
+require get_template_directory()."/portafolio/dist/my-app/index.html";
 
 
 
