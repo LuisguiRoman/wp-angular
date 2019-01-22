@@ -4,7 +4,7 @@ declare var jquery:any;
 declare var $:any;
 
 @Component({
-  selector: 'app-brick',
+  selector: 'ed-brick',
   templateUrl: './brick.component.html',
   styleUrls: ['./brick.component.css']
 })
@@ -26,7 +26,7 @@ export class BrickComponent implements OnInit {
 
       $contenedor.imagesLoaded( function() {
           $contenedor.isotope({
-              itemSelector: 'app-brick',
+              itemSelector: 'ed-brick',
               layout: 'layout'
           });
           //ordenar aleatoriamente ------ sortBy: 'random'

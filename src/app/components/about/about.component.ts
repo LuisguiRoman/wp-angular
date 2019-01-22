@@ -4,7 +4,7 @@ declare var jquery:any;
 declare var $:any;
 
 @Component({
-  selector: 'app-about',
+  selector: 'ed-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })

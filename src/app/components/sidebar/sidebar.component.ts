@@ -6,7 +6,7 @@ declare var jquery:any;
 declare var $:any;
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'ed-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 //inyectar el servicio en el provider del componente
 @Component({
-  selector: 'app-wall',
+  selector: 'ed-wall',
   templateUrl: './wall.component.html',
   styleUrls: ['./wall.component.css']
 })

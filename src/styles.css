@@ -350,7 +350,7 @@ figure.after:after{
     position: relative;
 }
 
-app-brick {
+ed-brick {
     display: block;
     width: 25%;
     margin: 0;

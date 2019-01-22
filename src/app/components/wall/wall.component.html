@@ -10,13 +10,13 @@
     </header>
 
 	<div id="wall" *ngIf=" items ">
-		<app-brick 
+		<ed-brick 
           *ngFor=" let item of items;  let last = last " 
           [ready]="last" 
           [item]="item" 
           [ngClass]=" item.categories | cats " 
           [attr.data-cats]=" item.categories | cats " >
-    </app-brick>
+    </ed-brick>
 	</div>
 
 </div>

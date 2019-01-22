@@ -16,6 +16,8 @@
             "outputPath": "diablo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/diablo-app/",
+            "deployUrl": "/diablo-app/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
