@@ -15,7 +15,7 @@
 
 
 
-require "/diablo-app/index.html";
+require_once $_SERVER['DOCUMENT_ROOT']. "/diablo-app/index.html";
 
 
 

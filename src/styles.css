@@ -568,7 +568,6 @@ ed-brick {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(assets/img/me-draw.png);
     opacity: 1;
     transition: all .5s;
 }

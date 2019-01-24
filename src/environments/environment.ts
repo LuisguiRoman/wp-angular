@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  assetsUrl: '',
   apiUrl: 'http://eldiablo.com.co/wp-json/wp/v2'
 };
