@@ -3,10 +3,14 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';//import
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment';//importar las variables de ambiente
+
 @Injectable()
 export class CatsService {
 
-  public jsonCats = "http://eldiablo.com.co/wp-json/wp/v2/categories";
+  env = environment.apiUrl;//importar rutas de apis relativas
+
+  public jsonCats = this.env + "/categories";
 
   constructor(private http:Http) {}
 

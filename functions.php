@@ -27,6 +27,13 @@ function ruisugi_scripts() {
 add_action( 'wp_enqueue_scripts', 'ruisugi_scripts' );
 
 
+function add_cors_http_header(){//testing de cors
+	//para que no se pueda accedera a los servivios desde otros dominios
+    header("Access-Control-Allow-Origin: *");
+}
+add_action('init','add_cors_http_header');
+
+
 
 //remover "acerca de" de la barra de administracion
 function barra_de_admin() {

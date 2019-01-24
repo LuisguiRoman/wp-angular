@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';//leer informac
 import { ItemsPortfolioService } from '../../services/items-portfolio.service';//importar el servicio
 import { Location } from '@angular/common';//volver en el historial
 
+import { environment } from '../../../environments/environment';//importar las variables de ambiente
+
 declare var jquery:any;
 declare var $:any;
 
@@ -13,6 +15,8 @@ declare var $:any;
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+
+  env = environment.apiUrl;//importar rutas de apis relativas
 
   itemSelected:any;
   itemSlug:string;
@@ -42,7 +46,7 @@ export class ItemComponent implements OnInit {
     //del servicio creado en php
     //subscribe para una respuesta o callback almacenada en la variable respuesta en formato Json
     this.http
-    .request('http://eldiablo.com.co/wp-json/wp/v2/posts?slug='+this.itemSlug)
+    .request(this.env + '/posts?slug='+this.itemSlug)
     .subscribe( (respuesta:Response)=> {
       this.itemSelected = respuesta.json()[0]//almacenamos en la variable videos el json
       this.getTags(this.itemSelected.tags);
@@ -51,7 +55,7 @@ export class ItemComponent implements OnInit {
 
   getTags(tags){
     this.http
-    .request('http://eldiablo.com.co/wp-json/wp/v2/tags?include='+tags)
+    .request(this.env + '/tags?include='+tags)
     .subscribe( (respuesta:Response)=> {
       this.itemTags = respuesta.json()//almacenamos en la variable videos el json
     } );
