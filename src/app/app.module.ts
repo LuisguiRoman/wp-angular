@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';//habilitar rutas
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//animaciones
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';//ejecutar acci9ones http
@@ -44,6 +44,7 @@ const rutasApp:Routes = [
     BrowserAnimationsModule
   ],
   providers: [
+    Title,
     CatsService,
     ItemsPortfolioService
   ],

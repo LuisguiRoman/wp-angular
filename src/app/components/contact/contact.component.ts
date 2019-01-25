@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }     from '@angular/platform-browser';//servicio para etqueta title dynamica
 
 @Component({
   selector: 'ed-contact',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private titleService: Title
+  	) { }
 
   ngOnInit() {
+  	this.titleService.setTitle( 'Contacto -  El Diablo' );
   }
 
 }

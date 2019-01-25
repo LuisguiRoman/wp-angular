@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';//leer informac
 import { ItemsPortfolioService } from '../../services/items-portfolio.service';//importar el servicio
 import { Location } from '@angular/common';//volver en el historial
 
+import { Title }     from '@angular/platform-browser';//servicio para etqueta title dynamica
+
 import { environment } from '../../../environments/environment';//importar las variables de ambiente
 
 declare var jquery:any;
@@ -25,9 +27,11 @@ export class ItemComponent implements OnInit {
   constructor(
   	private http:Http,
   	private _location:Location, 
-  	private ruta:ActivatedRoute, 
+  	private ruta:ActivatedRoute,
+    private titleService: Title,
   	private _service:ItemsPortfolioService 
   	) { }
+
 
   ngOnInit() {
     //params es un observable ( evento asyncrono )
@@ -36,9 +40,6 @@ export class ItemComponent implements OnInit {
   		this.itemSlug = params['slug'];
       this.obtenerItem();
   	});
-
-    this.wow();
-
   }
 
   obtenerItem():void{
@@ -49,8 +50,13 @@ export class ItemComponent implements OnInit {
     .request(this.env + '/posts?slug='+this.itemSlug)
     .subscribe( (respuesta:Response)=> {
       this.itemSelected = respuesta.json()[0]//almacenamos en la variable videos el json
+
+      console.log(this.itemSelected.title.rendered);
+
+      this.titleService.setTitle( this.itemSelected.title.rendered + ' - El Diablo' );
+
       this.getTags(this.itemSelected.tags);
-    } );
+    });
   }
 
   getTags(tags){
@@ -59,10 +65,6 @@ export class ItemComponent implements OnInit {
     .subscribe( (respuesta:Response)=> {
       this.itemTags = respuesta.json()//almacenamos en la variable videos el json
     } );
-  }
-
-  wow(){
-    
   }
 
 

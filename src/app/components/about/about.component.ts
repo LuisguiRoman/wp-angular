@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Title }     from '@angular/platform-browser';//servicio para etqueta title dynamica
+
 declare var jquery:any;
 declare var $:any;
 
@@ -10,9 +12,12 @@ declare var $:any;
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: Title
+    ) { }
 
   ngOnInit() {
+    this.titleService.setTitle( 'Sobre El Diablo' );
   	this.skills();
   }
 
