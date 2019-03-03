@@ -51,7 +51,7 @@ export class ItemComponent implements OnInit {
     .subscribe( (respuesta:Response)=> {
       this.itemSelected = respuesta.json()[0]//almacenamos en la variable videos el json
 
-      console.log(this.itemSelected.title.rendered);
+      console.log(this.itemSelected);
 
       this.titleService.setTitle( this.itemSelected.title.rendered + ' - El Diablo' );
 

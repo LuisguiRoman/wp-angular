@@ -1,22 +1,24 @@
 <div class="container top portfolio">
 
     <header>
-    	<ul id="filter" *ngIf=" cats ">
+      <ul id="filter" *ngIf=" cats ">
             <li data-cat="*">Todos</li>
-            <li *ngFor=" let cat of cats " class="{{cat.id}}" [attr.data-cat]=" cat.id " >
+            <li *ngFor=" let cat of cats " class="{{cat.id}}" [attr.data-cat]=" cat.id " [attr.data-groups]=" cat.id " >
               {{cat.name}}
             </li>
         </ul>
     </header>
 
-	<div id="wall" *ngIf=" items ">
-		<ed-brick 
-          *ngFor=" let item of items;  let last = last " 
-          [ready]="last" 
-          [item]="item" 
-          [ngClass]=" item.categories | cats " 
-          [attr.data-cats]=" item.categories | cats " >
+  <div id="wall" class="wall" *ngIf=" items ">
+    <ed-brick 
+        *ngFor=" let item of items;  let last = last " 
+        [ready]="last" 
+        [item]="item" 
+        class="ed-brick" 
+        [ngClass]=" item.categories | cats " 
+        [attr.data-cats]=" item.categories | cats "
+        [attr.data-groups]=" item.categories | cats " >
     </ed-brick>
-	</div>
+  </div>
 
 </div>

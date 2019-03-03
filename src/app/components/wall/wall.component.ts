@@ -4,6 +4,9 @@ import { CatsService } from '../../services/cats.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+declare var jquery:any;
+declare var $:any;
+
 //inyectar el servicio en el provider del componente
 @Component({
   selector: 'ed-wall',
@@ -40,10 +43,10 @@ export class WallComponent implements OnInit {
     this._itemsPortfolioService
       .getPortfolio()
       .subscribe(
-      	  (respuesta) => { this.items = respuesta; console.log(this.items); },
-      	  (err) => { console.error(err) },
-      	  () => { }
-      	)
+          (respuesta) => { this.items = respuesta; console.log(this.items); },
+          (err) => { console.error(err) },
+          () => { }
+        )
   }
 
 }
