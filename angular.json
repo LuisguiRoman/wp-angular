@@ -32,7 +32,6 @@
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/imagesloaded.min.js",
-              "src/assets/js/shuffle.min.js",
               "src/assets/js/materialize.min.js"
             ]
           },
@@ -97,7 +96,6 @@
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/imagesloaded.min.js",
-              "src/assets/js/isotope.min.js",
               "src/assets/js/materialize.min.js"
             ],
             "assets": [

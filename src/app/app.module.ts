@@ -41,6 +41,7 @@ const rutasApp:Routes = [
     RouterModule.forRoot(rutasApp),
     BrowserModule,
     HttpModule,
+    FormsModule,
     BrowserAnimationsModule
   ],
   providers: [

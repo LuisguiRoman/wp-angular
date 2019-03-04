@@ -22,15 +22,7 @@ export class BrickComponent implements OnInit {
     if (isReady) {
 
       /*
-      $('#filter li').on('click', function() {
-          var valor = $(this).attr('data-cat');//capturar la ciudad
-          if (valor === '*') {
-            valor = valor;
-          }else{
-            valor = '.'+valor;
-          }
-          $contenedor.isotope({ filter: valor });//filtrar
-      });
+      
       */
 
 
@@ -50,22 +42,44 @@ export class BrickComponent implements OnInit {
           }
 
           function resizeGridItem(item){
-            console.log(item);
             var grid = document.getElementsByClassName("wall")[0];
             var rowHeight = parseInt( window.getComputedStyle(grid).getPropertyValue('grid-auto-rows') );
             var rowGap = parseInt( window.getComputedStyle(grid).getPropertyValue('grid-row-gap') );
 
-            console.log(rowHeight)
-
-            console.log(rowGap)
-
-            var rowSpan = Math.ceil( ( $(item).find('img').height()+rowGap)/(rowHeight+rowGap) );
+            var rowSpan = Math.ceil( ( $(item).find('img').height()+20+rowGap)/(rowHeight+rowGap) );
 
             item.style.gridRowEnd = "span "+rowSpan;
-            $(item).css('opacity', 1);
+            item.style.opacity = 1;
+
+            /*
+            $('#wall').height( $('#wall').height() );
+
+            $(item).delay(10).animate({
+              'width': $(item).width(),
+              'opacity': 1,
+              'position': 'absolute',
+              'left': $(item).position().left,
+              'top': $(item).position().top,
+            }, 1, function(){
+              $(item).css('position', 'absolute')
+            });
+            */
+
           }
 
           window.addEventListener("resize", resizeAllGridItems);
+
+          $('#filter li').on('click', function(){
+              var valor = $(this).attr('data-cat');//capturar la ciudad
+              if (valor === '*') {
+                $('ed-brick').stop(true).show(400);
+              }else{
+                valor = '.'+valor;
+                $('ed-brick').not(valor).stop(true).hide(400, function(){
+                  $('ed-brick'+valor).show(400);
+                });
+              }
+          });
       });
 
       

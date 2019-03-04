@@ -145,14 +145,15 @@ h1,
 }
 
 .container{
-    width: 100%;
-    max-width: 100%;
+    width: 80%;
+    max-width: 80%;
     margin: auto;
+    margin-left: 20%;
     box-sizing: border-box;
     padding: 70px 0 50px 0;
-    padding-left: 20%;
     transition: all .3s;
     position: relative;
+    overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
     background-color: white;
@@ -342,13 +343,13 @@ figure.after:after{
 /* wall */
 
 #wall{
-    width: 95%;
+    width: 100%;
     margin: 70px auto 50px auto;
     box-sizing: border-box;
     clear: both;
     position: relative;
     display: grid;
-    grid-gap: 2px 0px;
+    grid-gap: 0 0;
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
     grid-auto-rows: 20px;
 }
@@ -360,7 +361,7 @@ ed-brick {
     box-sizing: border-box;
     float: left;
     opacity: 0;
-    transition: all .3s;
+    transition: opacity .3s;
 }
 
 /* wall */
@@ -613,6 +614,43 @@ ed-brick {
 /* about */
 
 
+
+
+/* formulario */
+
+input.ng-invalid.ng-touched input.invalid,
+textarea.ng-invalid.ng-touched textarea.invalid{
+    border-bottom: 1px solid #E80C0C;
+}
+input.ng-valid.valid,
+textarea.ng-valid.valid{
+    border-bottom: 1px solid #26a69a !important;
+    box-shadow: none !important;
+}
+
+/* formulario */
+
+
+
+
+@media screen and (max-width:991px){
+    header{
+        width: 100%;
+        left: 0;
+    }
+    .sidebar{
+        width: 200px;
+        left: -200px;
+    }
+    .container{
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+    header ul li{
+        margin: 20px 10px 0 10px;
+    }
+}
 
 ::-moz-selection {
     color: #ffffff;

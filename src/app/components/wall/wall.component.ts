@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ItemsPortfolioService } from '../../services/items-portfolio.service';//importar el servicio
 import { CatsService } from '../../services/cats.service';
 import { Observable } from 'rxjs/Observable';
+
+import { Title }     from '@angular/platform-browser';//servicio para etqueta title dynamica
+
 import 'rxjs/add/operator/map';
 
 declare var jquery:any;
@@ -20,11 +23,13 @@ export class WallComponent implements OnInit {
   
   //inyectar el servicio en el constructor
   constructor( 
+    private titleService: Title,
     private _itemsPortfolioService:ItemsPortfolioService,
     private _catsService:CatsService
   ) { }
 
   ngOnInit() {
+    this.titleService.setTitle( 'El Diablo' );
     this.getCatsPortfolio();
     this.getItemsPortfolio();
   }
