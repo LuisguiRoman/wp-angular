@@ -9,13 +9,6 @@ import { environment } from '../../../environments/environment';//importar las v
 
 import { Http, Response, Headers, RequestOptions } from '@angular/http';//importar componenete para hacer peticiones http
 
-let httpOptions = {
-  headers: new Headers({
-    'Content-Type':  'application/json',
-    'Authorization': 'g0Y2uVrK1ZzmOV9wBDHmnemaZBgTzFVXxkwYkrID'
-  })
-}
-
 @Component({
   selector: 'ed-contact',
   templateUrl: './contact.component.html',
@@ -23,8 +16,9 @@ let httpOptions = {
 })
 export class ContactComponent implements OnInit {
 
-  env = environment.apiUrl;//importar rutas de apis relativas
-  public jsonUrl = this.env + "/types/contactos";
+  autUrl = environment.autUrl;//importar rutas de apis relativas
+  env    = environment.apiUrl;//importar rutas de apis relativas
+  public jsonUrl = this.env + "/posts";
 
   constructor(
   	private titleService: Title,
@@ -37,20 +31,40 @@ export class ContactComponent implements OnInit {
   }
 
   contactForm(formulario:NgForm){
-
-  	let msmBody = {
-  		'title': formulario.value.email,
-  		'content': `<strong>Nombre:</strong>, ${formulario.value.nombre} <br/>
-  		            <strong>Email:</strong>, ${formulario.value.nombre} <br/>
-  		            <strong>Asunto:</strong>, ${formulario.value.asunto} <br/>
-  		            <strong>Mensaje:</strong>,<br/> ${formulario.value.mensaje}`
-  	};
-
-  	this.http.post(this.jsonUrl, msmBody, httpOptions)
-  	.subscribe( resp => ( console.log(resp) ) );
-
-  	//this._contactService.createContact(formulario.value)
-  	                    //.subscribe( hero => this.heroes.push(formulario.value) );
+    this.generateToken(formulario);
   };
 
+  generateToken(formulario){
+    this.http.post(this.autUrl, {
+      username: 'angular',
+      password: ')dN2xlXvDhicP0YZ(MaFY%NU'
+    })
+    .subscribe( (resp:Response) => {
+      this.sendContact(formulario, resp);
+    });
+  }
+
+  sendContact(formulario, tokenData){
+
+    let token = JSON.parse(tokenData._body);
+        token = token.token;
+
+    let httpOptions = {
+      headers: new Headers({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer '+token
+      })
+    };
+    let msmBody = {
+      'title': formulario.value.email,
+      'content': `<strong>Nombre:</strong>, ${formulario.value.nombre} <br/>
+                  <strong>Email:</strong>, ${formulario.value.nombre} <br/>
+                  <strong>Asunto:</strong>, ${formulario.value.asunto} <br/>
+                  <strong>Mensaje:</strong>,<br/> ${formulario.value.mensaje}`
+    };
+    this.http.post(this.jsonUrl, msmBody, httpOptions)
+             .subscribe( resp => ( console.log(resp) ) );
+  }
+
 }
+
